@@ -1,9 +1,9 @@
 // src/components/layout/AppLayout.tsx
 import { createSignal, JSX } from "solid-js";
 import { useLocation } from "@solidjs/router";
-import Sidebar from "../Sidebar";
+import Sidebar from "../../components/layout/Sidebar";
 import styles from "./AppLayout.module.css";
-import { Icon } from "./Sidebar";
+import { Icon } from "../../components/layout/Sidebar";
 
 const pageTitles: Record<string, string> = {
   "/dashboard": "Dashboard",
