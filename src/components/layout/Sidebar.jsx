@@ -3,6 +3,7 @@ import { Show, For } from "solid-js";
 import { A, useLocation } from "@solidjs/router";
 import styles from "./Sidebar.module.css";
 import { useAuth } from "../../store/auth";
+import logo from "../../assets/logo2.png";
 const navItems = [
     { href: "/dashboard", label: "Dashboard", icon: "grid" },
     { href: "/pos", label: "Kasir / POS", icon: "shopping-cart" },
@@ -47,7 +48,7 @@ export default function Sidebar(props) {
         {/* Logo */}
         <div class={styles.logo}>
       <div class={styles.logoMark}>
-  <img src="src/assets/logo2.png" alt="Logo" class={styles.logoImg} />
+  <img src={logo} alt="Logo" class={styles.logoImg} />
 </div>
           <div class={styles.logoText}>
             <span class={styles.logoMain}>Saulo</span>
