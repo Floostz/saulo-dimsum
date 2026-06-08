@@ -1,0 +1,83 @@
+/* src/pages/finance/FinancePage.module.css */
+.page { display: flex; flex-direction: column; gap: var(--space-6); }
+
+.header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); }
+.title { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--color-text); }
+.subtitle { font-size: 13px; color: var(--color-text-muted); margin-top: 2px; }
+
+.refreshBtn {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md); border: 1.5px solid var(--color-border);
+  background: var(--color-surface); color: var(--color-text-muted); cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.refreshBtn:hover { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-primary-subtle); }
+
+.filterBar {
+  display: flex; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap;
+  padding: var(--space-5); background: var(--color-surface);
+  border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+}
+.dateInput { flex: 1; min-width: 155px; }
+.resetBtn { align-self: flex-end; }
+
+.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+
+.cashFlowCard {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.tableHeader {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--color-border);
+}
+.cardTitle { font-size: 15px; font-weight: 600; color: var(--color-text); font-family: var(--font-display); }
+.cardSub { font-size: 12px; color: var(--color-text-muted); margin-top: 2px; }
+
+.loadingState {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 60px; color: var(--color-text-muted); font-size: 14px;
+}
+.loadingSpinner {
+  width: 20px; height: 20px; border: 2.5px solid var(--color-border);
+  border-top-color: var(--color-primary); border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.emptyState {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 60px 20px; color: var(--color-text-muted); font-size: 14px; text-align: center;
+}
+.emptyState p { font-size: 15px; font-weight: 600; color: var(--color-text-secondary); }
+.emptyState span { font-size: 13px; max-width: 320px; line-height: 1.6; }
+
+.tableWrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table thead tr { background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
+.table th {
+  padding: 10px 14px; text-align: left; font-size: 10.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); white-space: nowrap;
+}
+.row { border-bottom: 1px solid var(--color-border-light); transition: background var(--transition-fast); }
+.row:last-child { border-bottom: none; }
+.row:hover { background: var(--color-bg); }
+.table td { padding: 11px 14px; vertical-align: middle; }
+
+.dateCell { white-space: nowrap; color: var(--color-text-muted); font-size: 12px; }
+.descCell { display: flex; flex-direction: column; gap: 2px; }
+.descCell span:first-child { font-size: 13px; font-weight: 500; color: var(--color-text); }
+.refCode { font-size: 10.5px; color: var(--color-text-muted); font-family: monospace; }
+.incomeCell  { font-weight: 700; color: var(--color-success); white-space: nowrap; }
+.expenseCell { font-weight: 600; color: var(--color-danger); white-space: nowrap; }
+.dash { color: var(--color-border); }
+.balanceCell { font-weight: 700; white-space: nowrap; font-family: var(--font-display); }
+.balancePos { color: var(--color-success); }
+.balanceNeg { color: var(--color-danger); }
+
+@media (max-width: 1100px) { .statsGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+  .filterBar { flex-direction: column; }
+  .dateInput { width: 100%; }
+}

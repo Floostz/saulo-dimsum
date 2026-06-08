@@ -1,0 +1,163 @@
+/* src/pages/users/UsersPage.module.css */
+.page { display: flex; flex-direction: column; gap: var(--space-6); }
+
+.header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.title { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--color-text); }
+.subtitle { font-size: 13px; color: var(--color-text-muted); margin-top: 2px; }
+
+.usersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.userCard {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: all var(--transition-base);
+  animation: fadeIn var(--transition-base) both;
+}
+.userCard:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.userInactive { opacity: 0.6; }
+
+.userCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(200,16,46,0.25);
+}
+
+.userMeta { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+
+.userInfo { display: flex; flex-direction: column; gap: 4px; }
+.userName { font-size: 16px; font-weight: 700; color: var(--color-text); }
+.userEmail { font-size: 13px; color: var(--color-text-secondary); }
+.userJoined { font-size: 11.5px; color: var(--color-text-muted); }
+
+.userActions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* Roles Card */
+.rolesCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.rolesTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  margin-bottom: var(--space-5);
+}
+
+.rolesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.roleItem { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.rolePermissions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 4px;
+}
+
+.rolePermissions span {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rolePermissions span::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+/* Form */
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.colSpan2 { grid-column: 1 / -1; }
+
+.activeField { display: flex; align-items: center; }
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  user-select: none;
+}
+.toggleInput { display: none; }
+.toggleSlider {
+  width: 40px;
+  height: 22px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+.toggleSlider::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.toggleInput:checked + .toggleSlider { background: var(--color-primary); }
+.toggleInput:checked + .toggleSlider::after { transform: translateX(18px); }
+
+@media (max-width: 700px) {
+  .rolesGrid { grid-template-columns: 1fr; }
+  .formGrid { grid-template-columns: 1fr; }
+  .colSpan2 { grid-column: 1; }
+}
+
+.loadingState { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 60px; color: var(--color-text-muted); font-size: 14px; }
+.loadingSpinner { width: 20px; height: 20px; border: 2.5px solid var(--color-border); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 0.75s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.emptyFull { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 80px 20px; text-align: center; }
+.emptyFull p { font-size: 16px; font-weight: 600; color: var(--color-text-secondary); }
+.emptyFull span { font-size: 13px; color: var(--color-text-muted); max-width: 320px; line-height: 1.6; }

@@ -1,0 +1,106 @@
+/* src/components/ui/Card.module.css */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--transition-fast);
+}
+
+.card.elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.none { padding: 0; }
+.sm { padding: var(--space-4); }
+.md { padding: var(--space-6); }
+.lg { padding: var(--space-8); }
+
+/* Stat Card */
+.statCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.stat-primary::before { background: var(--color-primary); }
+.stat-success::before { background: var(--color-success); }
+.stat-warning::before { background: var(--color-warning); }
+.stat-info::before { background: var(--color-info); }
+.stat-gold::before { background: var(--color-gold); }
+
+.statCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.statHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.statIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-primary { background: var(--color-primary-muted); color: var(--color-primary); }
+.icon-success { background: var(--color-success-bg); color: var(--color-success); }
+.icon-warning { background: var(--color-warning-bg); color: var(--color-warning); }
+.icon-info { background: var(--color-info-bg); color: var(--color-info); }
+.icon-gold { background: var(--color-gold-light); color: var(--color-gold); }
+
+.statValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: var(--space-1);
+  font-family: var(--font-display);
+}
+
+.statSub {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.statTrend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.trendUp { color: var(--color-success); }
+.trendDown { color: var(--color-danger); }
+.trendLabel { color: var(--color-text-muted); font-weight: 400; }
