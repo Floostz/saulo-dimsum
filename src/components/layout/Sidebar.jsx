@@ -48,7 +48,7 @@ export default function Sidebar(props) {
         {/* Logo */}
         <div class={styles.logo}>
       <div class={styles.logoMark}>
-  <img src={logo} alt="Logo" class={styles.logoImg} />
+<img src={logo} alt="Logo" class={styles.logoImg} />
 </div>
           <div class={styles.logoText}>
             <span class={styles.logoMain}>Saulo</span>
